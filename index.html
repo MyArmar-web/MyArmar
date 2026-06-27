@@ -1,0 +1,1695 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Armar | Անշարժ գույք Հայաստանում</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1a1a3e;
+            --primary-dark: #f9f7f4;;
+            --primary-light: #2a2a5e;
+            --secondary: #939daa;
+            --accent: #f4a261;
+            --accent-bright: #e76f51;
+            --accent-hover: #e07b3c;
+            --teal: #2ec4b6;
+            --rose: #ff6b6b;
+            --gold: #ffd166;
+            --bg: #f8f9fa;
+            --white: #FFFFFF;
+            --text: #1a1a2e;
+            --text-light: #6c757d;
+            --text-muted: #adb5bd;
+            --border: #dee2e6;
+            --border-light: #e9ecef;
+            --shadow: 0 2px 15px rgba(0,0,0,0.08);
+            --shadow-hover: 0 10px 30px rgba(0,0,0,0.15);
+            --radius: 16px;
+            --radius-sm: 10px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --gradient-4: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            --gradient-5: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* Vibrant Animated Background */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.03;
+            pointer-events: none;
+        }
+
+        .animated-bg .shape {
+            position: absolute;
+            border-radius: 50%;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .shape-1 {
+            width: 300px;
+            height: 300px;
+            background: var(--gradient-1);
+            top: 10%;
+            left: 5%;
+            animation-delay: 0s;
+        }
+
+        .shape-2 {
+            width: 200px;
+            height: 200px;
+            background: var(--gradient-2);
+            top: 60%;
+            right: 10%;
+            animation-delay: -5s;
+        }
+
+        .shape-3 {
+            width: 250px;
+            height: 250px;
+            background: var(--gradient-3);
+            bottom: 20%;
+            left: 30%;
+            animation-delay: -10s;
+        }
+
+        .shape-4 {
+            width: 180px;
+            height: 180px;
+            background: var(--gradient-4);
+            top: 30%;
+            right: 30%;
+            animation-delay: -15s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+            25% { transform: translateY(-50px) rotate(90deg) scale(1.1); }
+            50% { transform: translateY(0) rotate(180deg) scale(1); }
+            75% { transform: translateY(50px) rotate(270deg) scale(0.9); }
+        }
+
+        /* Header */
+        header {
+            background: rgba(26, 26, 62, 0.95);
+            backdrop-filter: blur(20px);
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            gap: 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            letter-spacing: -0.5px;
+            white-space: nowrap;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-5);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--primary-dark);
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: rgba(255,255,255,0.85);
+            font-weight: 500;
+            transition: var(--transition);
+            font-size: 0.9rem;
+            padding: 0.5rem 0;
+            border-bottom: 2px solid transparent;
+            white-space: nowrap;
+            position: relative;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .nav-menu a:hover {
+            color: var(--accent);
+        }
+
+        .currency-selector {
+            padding: 0.5rem 0.8rem;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: var(--radius-sm);
+            background: rgba(255,255,255,0.08);
+            color: white;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.85rem;
+        }
+
+        .currency-selector:hover {
+            background: rgba(255,255,255,0.15);
+        }
+
+        .currency-selector option {
+            background: var(--primary);
+            color: white;
+        }
+
+        .language-switch {
+            display: flex;
+            gap: 4px;
+        }
+
+        .lang-btn {
+            padding: 0.4rem 0.7rem;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: var(--radius-sm);
+            background: rgba(255,255,255,0.08);
+            color: white;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .lang-btn.active {
+            background: var(--accent);
+            color: var(--primary-dark);
+            border-color: var(--accent);
+            font-weight: 700;
+            box-shadow: 0 0 20px rgba(244, 162, 97, 0.3);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: white;
+        }
+
+        .dark-mode-toggle {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: white;
+            padding: 0.5rem 0.8rem;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+
+        .dark-mode-toggle:hover {
+            background: rgba(255,255,255,0.15);
+        }
+
+        /* Hero Section with Yerevan Image and Blue Overlay */
+        .hero {
+            position: relative;
+            min-height: 700px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background: var(--primary-dark);
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1591287083833-3d35e5b8ed7a?w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.5) saturate(1.3);
+            animation: slowZoom 30s infinite alternate;
+        }
+
+        @keyframes slowZoom {
+            from { transform: scale(1); }
+            to { transform: scale(1.08); }
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                135deg,
+                rgba(13, 13, 43, 0.92) 0%,
+                rgba(26, 26, 62, 0.85) 40%,
+                rgba(30, 58, 95, 0.8) 70%,
+                rgba(42, 42, 94, 0.9) 100%
+            );
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            padding: 4rem 0;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-text {
+            color: white;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--primary-dark);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(244, 162, 97, 0.5); }
+            50% { box-shadow: 0 0 0 20px rgba(244, 162, 97, 0); }
+        }
+
+        .hero-text h1 {
+            font-size: 3.2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            line-height: 1.2;
+            text-shadow: 2px 2px 20px rgba(0,0,0,0.5);
+        }
+
+        .hero-text h1 .highlight {
+            background: var(--gradient-5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-text p {
+            font-size: 1.15rem;
+            opacity: 0.95;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 10px rgba(0,0,0,0.5);
+            line-height: 1.7;
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 400px;
+            border-radius: var(--radius);
+            background-image: url('https://images.unsplash.com/photo-1549654696-1c5a0a6d9a5b?w=800&q=80');
+            background-size: cover;
+            background-position: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            border: 3px solid rgba(255,255,255,0.2);
+            animation: floatImage 6s ease-in-out infinite;
+        }
+
+        @keyframes floatImage {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .hero-image-badge {
+            position: absolute;
+            bottom: -15px;
+            right: -15px;
+            background: var(--gradient-5);
+            color: var(--primary-dark);
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            box-shadow: 0 10px 30px rgba(250, 112, 154, 0.4);
+            animation: pulse 2s infinite;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 1.2rem 1.5rem;
+            border-radius: var(--radius-sm);
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: var(--transition);
+            min-width: 120px;
+        }
+
+        .stat-item:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            background: var(--gradient-5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            opacity: 0.9;
+            margin-top: 0.3rem;
+            font-weight: 500;
+            color: white;
+        }
+
+        /* Search Section */
+        .search-section {
+            background: var(--white);
+            border-radius: var(--radius);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            padding: 2rem;
+            margin: -3rem auto 3rem;
+            position: relative;
+            z-index: 10;
+            border: 1px solid var(--border-light);
+        }
+
+        .search-title {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: var(--text);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .search-title i {
+            color: var(--accent);
+        }
+
+        .filter-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 1rem;
+            align-items: end;
+        }
+
+        .filter-group label {
+            display: block;
+            margin-bottom: 0.4rem;
+            font-weight: 600;
+            font-size: 0.8rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .filter-group select,
+        .filter-group input {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 2px solid var(--border);
+            border-radius: var(--radius-sm);
+            font-size: 0.9rem;
+            background: var(--white);
+            transition: var(--transition);
+            color: var(--text);
+        }
+
+        .filter-group select:focus,
+        .filter-group input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 4px rgba(244, 162, 97, 0.1);
+        }
+
+        .btn-search {
+            background: var(--gradient-5);
+            color: var(--primary-dark);
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: var(--radius-sm);
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.9rem;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            white-space: nowrap;
+        }
+
+        .btn-search:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(250, 112, 154, 0.3);
+        }
+
+        .results-count {
+            text-align: center;
+            margin-top: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--accent-bright);
+            font-weight: 600;
+            min-height: 24px;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 2rem 0 4rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--text);
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .section-title .title-icon {
+            background: var(--gradient-5);
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            font-size: 1.2rem;
+            color: white;
+        }
+
+        .property-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .property-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--border-light);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .property-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-5);
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .property-card:hover::before {
+            opacity: 1;
+        }
+
+        .property-card:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-5px);
+        }
+
+        .property-image {
+            height: 220px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .property-tags {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .property-status {
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: white;
+            backdrop-filter: blur(10px);
+        }
+
+        .status-sale { background: var(--gradient-4); }
+        .status-rent { background: var(--gradient-3); }
+        .status-featured { background: var(--gradient-5); }
+
+        .property-details {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .property-price {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 0.3rem;
+        }
+
+        .property-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+            line-height: 1.3;
+        }
+
+        .property-location {
+            color: var(--text-light);
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .property-features {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+            font-size: 0.85rem;
+            color: var(--text-light);
+            padding: 0.8rem 0;
+            border-top: 1px solid var(--border-light);
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .feature i {
+            color: var(--accent);
+            font-size: 0.8rem;
+        }
+
+        .property-footer {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: auto;
+        }
+
+        .btn-view {
+            flex: 1;
+            background: var(--primary);
+            color: white;
+            padding: 0.7rem 1rem;
+            border-radius: var(--radius-sm);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            text-align: center;
+            font-size: 0.85rem;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.3rem;
+        }
+
+        .btn-view:hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
+        }
+
+        .btn-favorite {
+            background: var(--bg);
+            border: 2px solid var(--border);
+            padding: 0.7rem;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: var(--transition);
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+
+        .btn-favorite:hover {
+            border-color: var(--rose);
+            color: var(--rose);
+        }
+
+        .btn-favorite.active {
+            border-color: var(--rose);
+            color: var(--rose);
+        }
+
+        /* Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.8);
+            z-index: 2000;
+            animation: fadeIn 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .modal-overlay.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .modal-content {
+            background: var(--white);
+            border-radius: var(--radius);
+            max-width: 800px;
+            width: 95%;
+            max-height: 90vh;
+            overflow-y: auto;
+            animation: slideUp 0.4s ease;
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            z-index: 10;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-close:hover {
+            background: var(--rose);
+            transform: scale(1.1);
+        }
+
+        .modal-image {
+            height: 350px;
+            background-size: cover;
+            background-position: center;
+            border-radius: var(--radius) var(--radius) 0 0;
+            position: relative;
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        .modal-price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding: 1.5rem;
+            background: var(--bg);
+            border-radius: var(--radius-sm);
+        }
+
+        .info-item {
+            text-align: center;
+        }
+
+        .info-value {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .info-label {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            margin-top: 0.3rem;
+            font-weight: 500;
+        }
+
+        .modal-description {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .modal-amenities {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .amenity-tag {
+            background: linear-gradient(135deg, var(--bg) 0%, var(--border-light) 100%);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            color: var(--text);
+            border: 1px solid var(--border-light);
+            font-weight: 500;
+        }
+
+        .modal-contact {
+            background: var(--gradient-5);
+            color: var(--primary-dark);
+            padding: 2rem;
+            border-radius: var(--radius-sm);
+            text-align: center;
+        }
+
+        .modal-contact h4 {
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .modal-contact p {
+            margin-bottom: 0.3rem;
+            font-size: 0.9rem;
+        }
+
+        .btn-contact {
+            background: var(--primary-dark);
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 1rem;
+            transition: var(--transition);
+        }
+
+        .btn-contact:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-dark);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links a {
+            color: rgba(255,255,255,0.7);
+            font-size: 1.3rem;
+            transition: var(--transition);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+
+        .social-links a:hover {
+            color: var(--gold);
+            border-color: var(--gold);
+            transform: translateY(-3px);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+
+        .copyright {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.85rem;
+        }
+
+        /* Toast */
+        .toast {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--gradient-5);
+            color: var(--primary-dark);
+            padding: 1rem 1.5rem;
+            border-radius: 50px;
+            z-index: 3000;
+            animation: slideInRight 0.3s ease;
+            box-shadow: 0 10px 30px rgba(250, 112, 154, 0.3);
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        @keyframes slideInRight {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .nav-menu.active {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background: var(--primary-dark);
+                padding: 1rem;
+                gap: 0.5rem;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero {
+                min-height: auto;
+            }
+
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero-image {
+                height: 250px;
+            }
+
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .hero-stats {
+                gap: 1rem;
+            }
+
+            .stat-item {
+                min-width: 100px;
+                padding: 1rem;
+            }
+
+            .stat-number {
+                font-size: 1.5rem;
+            }
+
+            .property-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-image {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background Shapes -->
+    <div class="animated-bg">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+        <div class="shape shape-4"></div>
+    </div>
+
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="/" class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    My Armar
+                </a>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#" onclick="navigateTo('home')">Գլխավոր</a></li>
+                    <li><a href="#" onclick="navigateTo('properties')">Անշարժ գույք</a></li>
+                    <li><a href="#" onclick="navigateTo('apartments')">Բնակարաններ</a></li>
+                    <li><a href="#" onclick="navigateTo('houses')">Առանձնատներ</a></li>
+                    <li><a href="#" onclick="navigateTo('commercial')">Կոմերցիոն</a></li>
+                    <li>
+                        <select class="currency-selector" id="currencySelector" onchange="changeCurrency(this.value)">
+                            <option value="USD">$ USD</option>
+                            <option value="EUR">€ EUR</option>
+                            <option value="AMD">֏ AMD</option>
+                            <option value="RUB">₽ RUB</option>
+                        </select>
+                    </li>
+                    <li class="language-switch">
+                        <button class="lang-btn active" onclick="switchLanguage('hy')">Հայ</button>
+                        <button class="lang-btn" onclick="switchLanguage('en')">EN</button>
+                        <button class="lang-btn" onclick="switchLanguage('ru')">РУС</button>
+                    </li>
+                    <li>
+                        <button class="dark-mode-toggle" onclick="toggleDarkMode()">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section with Yerevan Photo and Blue Overlay -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-grid">
+                    <div class="hero-text">
+                        <div class="hero-badge">
+                            <i class="fas fa-star"></i> Պրեմիում անշարժ գույք
+                        </div>
+                        <h1>
+                            Գտիր քո <span class="highlight">երազանքի</span> տունը<br>
+                            <span style="font-size: 0.5em; opacity: 0.9; font-weight: 500;">Սրտում Երևան քաղաքի</span>
+                        </h1>
+                        <p>Բացահայտիր լավագույն անշարժ գույքը Հայաստանի ամենագեղեցիկ քաղաքում: Մենք առաջարկում ենք պրեմիում դասի բնակարաններ, առանձնատներ և կոմերցիոն տարածքներ:</p>
+                        <div class="hero-stats">
+                            <div class="stat-item">
+                                <div class="stat-number">1500+</div>
+                                <div class="stat-label">🏠 Անշարժ գույք</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">500+</div>
+                                <div class="stat-label">😊 Գոհ հաճախորդ</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">10+</div>
+                                <div class="stat-label">📅 Տարի փորձ</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">24/7</div>
+                                <div class="stat-label">📞 Աջակցություն</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-image-wrapper">
+                        <div class="hero-image"></div>
+                        <div class="hero-image-badge">
+                            <i class="fas fa-map-marker-alt"></i> Երևան, Հայաստան
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="search-section">
+            <div class="search-title">
+                <i class="fas fa-search"></i> Փնտրել անշարժ գույք
+            </div>
+            <div class="filter-grid">
+                <div class="filter-group">
+                    <label>Գույքի տեսակ</label>
+                    <select id="propertyType">
+                        <option value="all">Բոլորը</option>
+                        <option value="apartment">Բնակարան</option>
+                        <option value="house">Առանձնատուն</option>
+                        <option value="commercial">Կոմերցիոն</option>
+                        <option value="land">Հողատարածք</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Տարածաշրջան</label>
+                    <select id="location">
+                        <option value="all">Բոլորը</option>
+                        <option value="kentron">Կենտրոն</option>
+                        <option value="arabkir">Արաբկիր</option>
+                        <option value="avan">Ավան</option>
+                        <option value="nor-nork">Նոր Նորք</option>
+                        <option value="malatia-sebastia">Մալաթիա-Սեբաստիա</option>
+                        <option value="shengavit">Շենգավիթ</option>
+                        <option value="erebuni">Էրեբունի</option>
+                        <option value="davtashen">Դավթաշեն</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Սենյակներ</label>
+                    <select id="rooms">
+                        <option value="all">Բոլորը</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4+</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Նվազ. գին</label>
+                    <input type="number" id="minPrice" placeholder="0" value="0">
+                </div>
+                <div class="filter-group">
+                    <label>Առավել. գին</label>
+                    <input type="number" id="maxPrice" placeholder="Անսահման">
+                </div>
+                <div class="filter-group">
+                    <label>&nbsp;</label>
+                    <button class="btn-search" onclick="filterProperties()">
+                        <i class="fas fa-search"></i> Որոնել
+                    </button>
+                </div>
+            </div>
+            <div class="results-count" id="searchResults"></div>
+        </div>
+    </div>
+
+    <div class="container main-content">
+        <div class="section-title">
+            <span>
+                <span class="title-icon">🏠</span>
+                Առաջարկվող գույք
+            </span>
+            <span style="font-size: 0.9rem; font-weight: 600; color: var(--accent-bright);">
+                <span id="propertyCount">6</span> գույք
+            </span>
+        </div>
+        <div class="property-grid" id="propertyGrid"></div>
+    </div>
+
+    <!-- Property Detail Modal -->
+    <div class="modal-overlay" id="propertyModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-image" id="modalImage"></div>
+            <div class="modal-body">
+                <div class="modal-price" id="modalPrice"></div>
+                <div class="modal-title" id="modalTitle"></div>
+                <div class="modal-info-grid" id="modalInfo"></div>
+                <div class="modal-description" id="modalDescription"></div>
+                <h4 style="margin-bottom: 1rem;">✨ Հարմարություններ</h4>
+                <div class="modal-amenities" id="modalAmenities"></div>
+                <div class="modal-contact">
+                    <h4>Հետաքրքրվա՞ծ եք:</h4>
+                    <p>Կապվեք մեզ հետ հիմա</p>
+                    <p><i class="fas fa-phone"></i> +374 10 53 00 73</p>
+                    <p><i class="fas fa-envelope"></i> info@myarmar.am</p>
+                    <button class="btn-contact" onclick="contactAboutProperty()">
+                        <i class="fas fa-paper-plane"></i> Ուղարկել հարցում
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <div class="footer-links">
+                <a href="#">Գլխավոր</a>
+                <a href="#">Մեր մասին</a>
+                <a href="#">Ծառայություններ</a>
+                <a href="#">Կոնտակտներ</a>
+                <a href="#">Գաղտնիություն</a>
+            </div>
+            <p class="copyright">© 2024 My Armar. Բոլոր իրավունքները պաշտպանված են:</p>
+        </div>
+    </footer>
+
+    <script>
+        // Property Database
+        const properties = [
+            {
+                id: 1,
+                titleHy: "Ժամանակակից բնակարան Կենտրոնում",
+                titleEn: "Modern Apartment in Kentron",
+                titleRu: "Современная квартира в Кентроне",
+                type: "apartment",
+                location: "kentron",
+                rooms: 2,
+                priceUSD: 85000,
+                priceEUR: 78000,
+                priceAMD: 34000000,
+                priceRUB: 8500000,
+                beds: 2,
+                baths: 1,
+                area: 85,
+                floor: 5,
+                totalFloors: 12,
+                descriptionHy: "Գեղեցիկ վերանորոգված բնակարան Կենտրոնում: Մեծ պատուհաններ, լուսավոր սենյակներ, ժամանակակից խոհանոց: Մոտ բոլոր հարմարություններին, մետրոյի կայարանին:",
+                descriptionEn: "Beautifully renovated apartment in the Center. Large windows, bright rooms, modern kitchen. Close to all amenities, metro station.",
+                descriptionRu: "Красиво отремонтированная квартира в Центре. Большие окна, светлые комнаты, современная кухня. Рядом все удобства, метро.",
+                image: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800",
+                status: "sale",
+                amenities: ["Վերելակ", "Ավտոկայանատեղ", "Մարզասրահ", "24/7 անվտանգություն", "Մետրո"]
+            },
+            {
+                id: 2,
+                titleHy: "Շքեղ առանձնատուն Արաբկիրում",
+                titleEn: "Luxury House in Arabkir",
+                titleRu: "Роскошный дом в Арабкире",
+                type: "house",
+                location: "arabkir",
+                rooms: 4,
+                priceUSD: 250000,
+                priceEUR: 230000,
+                priceAMD: 100000000,
+                priceRUB: 25000000,
+                beds: 4,
+                baths: 3,
+                area: 280,
+                floor: 2,
+                totalFloors: 2,
+                descriptionHy: "Շքեղ առանձնատուն մեծ բակով, ավտոտնակով և լողավազանով: Հանգիստ թաղամաս, գեղեցիկ տեսարան դեպի Արարատ:",
+                descriptionEn: "Luxury house with large yard, garage and pool. Quiet neighborhood, beautiful view of Ararat.",
+                descriptionRu: "Роскошный дом с большим двором, гаражом и бассейном. Тихий район, красивый вид на Арарат.",
+                image: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800",
+                status: "sale",
+                amenities: ["Ավտոտնակ", "Լողավազան", "Բակ", "Բուխարի", "Տեսարան"]
+            },
+            {
+                id: 3,
+                titleHy: "Գրասենյակ Մալաթիայում",
+                titleEn: "Office in Malatia",
+                titleRu: "Офис в Малатии",
+                type: "commercial",
+                location: "malatia-sebastia",
+                rooms: 3,
+                priceUSD: 120000,
+                priceEUR: 110000,
+                priceAMD: 48000000,
+                priceRUB: 12000000,
+                beds: 0,
+                baths: 2,
+                area: 150,
+                floor: 3,
+                totalFloors: 5,
+                descriptionHy: "Ժամանակակից գրասենյակային տարածք: Բարձր առաստաղներ, օդորակիչ, արագ ինտերնետ, ստորգետնյա ավտոկայանատեղ:",
+                descriptionEn: "Modern office space. High ceilings, air conditioning, fast internet, underground parking.",
+                descriptionRu: "Современное офисное помещение. Высокие потолки, кондиционер, быстрый интернет, подземный паркинг.",
+                image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800",
+                status: "rent",
+                amenities: ["Օդորակիչ", "Ինտերնետ", "Ավտոկայանատեղ", "Վերելակ"]
+            },
+            {
+                id: 4,
+                titleHy: "Ստուդիո Ավանում",
+                titleEn: "Studio in Avan",
+                titleRu: "Студия в Аване",
+                type: "apartment",
+                location: "avan",
+                rooms: 1,
+                priceUSD: 45000,
+                priceEUR: 41000,
+                priceAMD: 18000000,
+                priceRUB: 4500000,
+                beds: 1,
+                baths: 1,
+                area: 45,
+                floor: 8,
+                totalFloors: 14,
+                descriptionHy: "Լուսավոր ստուդիո բնակարան գեղեցիկ տեսարանով: Ժամանակակից վերանորոգում, նոր կահույք:",
+                descriptionEn: "Bright studio apartment with beautiful view. Modern renovation, new furniture.",
+                descriptionRu: "Светлая студия с красивым видом. Современный ремонт, новая мебель.",
+                image: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800",
+                status: "sale",
+                amenities: ["Վերելակ", "Պահեստ", "Տեսարան"]
+            },
+            {
+                id: 5,
+                titleHy: "Ընտանեկան բնակարան Նոր Նորքում",
+                titleEn: "Family Apartment in Nor Nork",
+                titleRu: "Семейная квартира в Нор Норке",
+                type: "apartment",
+                location: "nor-nork",
+                rooms: 3,
+                priceUSD: 95000,
+                priceEUR: 87000,
+                priceAMD: 38000000,
+                priceRUB: 9500000,
+                beds: 3,
+                baths: 2,
+                area: 110,
+                floor: 12,
+                totalFloors: 16,
+                descriptionHy: "Մեծ ընտանեկան բնակարան մանկական խաղահրապարակով: Հարմարավետ դիրք, մոտ դպրոցներին և խանութներին:",
+                descriptionEn: "Large family apartment with children's playground. Convenient location, close to schools and shops.",
+                descriptionRu: "Большая семейная квартира с детской площадкой. Удобное расположение, рядом школы и магазины.",
+                image: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800",
+                status: "sale",
+                amenities: ["Մանկական խաղահրապարակ", "Ավտոկայանատեղ", "Վերելակ"]
+            },
+            {
+                id: 6,
+                titleHy: "Առևտրային տարածք Էրեբունիում",
+                titleEn: "Commercial Space in Erebuni",
+                titleRu: "Коммерческое помещение в Эребуни",
+                type: "commercial",
+                location: "erebuni",
+                rooms: 2,
+                priceUSD: 180000,
+                priceEUR: 165000,
+                priceAMD: 72000000,
+                priceRUB: 18000000,
+                beds: 0,
+                baths: 1,
+                area: 200,
+                floor: 1,
+                totalFloors: 4,
+                descriptionHy: "Մեծ առևտրային տարածք առաջին գծում: Մեծ ցուցափեղկ, բարձր հաճախելիություն, նոր վերանորոգում:",
+                descriptionEn: "Large commercial space on the first line. Large showcase, high traffic, new renovation.",
+                descriptionRu: "Большое коммерческое помещение на первой линии. Большая витрина, высокая проходимость, новый ремонт.",
+                image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800",
+                status: "rent",
+                amenities: ["Առաջին գիծ", "Ցուցափեղկ", "Օդորակիչ", "Պահեստ"]
+            }
+        ];
+
+        let currentCurrency = 'USD';
+        let currentLanguage = 'hy';
+        const currencySymbols = { USD: '$', EUR: '€', AMD: '֏', RUB: '₽' };
+        let currentPropertyId = null;
+
+        function changeCurrency(currency) {
+            currentCurrency = currency;
+            renderProperties(properties);
+            showToast(`Արժույթը փոխվեց ${currency}`);
+        }
+
+        function switchLanguage(lang) {
+            currentLanguage = lang;
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            renderProperties(properties);
+            showToast(`Լեզուն փոխվեց: ${lang.toUpperCase()}`);
+        }
+
+        function formatPrice(property) {
+            const priceKey = 'price' + currentCurrency;
+            const price = property[priceKey];
+            const symbol = currencySymbols[currentCurrency];
+            if (currentCurrency === 'AMD') return symbol + ' ' + price.toLocaleString();
+            return symbol + price.toLocaleString();
+        }
+
+        function getText(property, key) {
+            const langKey = key + currentLanguage.charAt(0).toUpperCase() + currentLanguage.slice(1);
+            return property[langKey] || property[key + 'Hy'] || property[key];
+        }
+
+        function renderProperties(props) {
+            const grid = document.getElementById('propertyGrid');
+            document.getElementById('propertyCount').textContent = props.length;
+            
+            if (props.length === 0) {
+                grid.innerHTML = `
+                    <div style="grid-column:1/-1;text-align:center;padding:4rem 2rem;color:var(--text-light);">
+                        <i class="fas fa-home" style="font-size:4rem;opacity:0.1;margin-bottom:1rem;"></i>
+                        <p style="font-size:1.2rem;">Գույք չի գտնվել</p>
+                        <p style="font-size:0.9rem;">Փորձեք փոխել որոնման չափանիշները</p>
+                    </div>`;
+                return;
+            }
+
+            grid.innerHTML = props.map(prop => `
+                <div class="property-card">
+                    <div class="property-image" style="background-image: url('${prop.image}')" onclick="openPropertyDetail(${prop.id})">
+                        <div class="property-tags">
+                            <span class="property-status status-${prop.status}">
+                                ${prop.status === 'sale' ? 'Վաճառք' : 'Վարձով'}
+                            </span>
+                        </div>
+                    </div>
+                    <div class="property-details">
+                        <div class="property-price">${formatPrice(prop)}</div>
+                        <div class="property-title">${getText(prop, 'title')}</div>
+                        <div class="property-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            ${getLocationName(prop.location)}
+                        </div>
+                        <div class="property-features">
+                            <span class="feature"><i class="fas fa-door-open"></i> ${prop.rooms} սեն.</span>
+                            ${prop.beds > 0 ? `<span class="feature"><i class="fas fa-bed"></i> ${prop.beds} ննջ.</span>` : ''}
+                            <span class="feature"><i class="fas fa-bath"></i> ${prop.baths} լոգ.</span>
+                            <span class="feature"><i class="fas fa-vector-square"></i> ${prop.area} մ²</span>
+                        </div>
+                        <div class="property-footer">
+                            <button class="btn-view" onclick="openPropertyDetail(${prop.id})">
+                                <i class="fas fa-info-circle"></i> Մանրամասն
+                            </button>
+                            <button class="btn-favorite" onclick="toggleFavorite(${prop.id}, this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function getLocationName(loc) {
+            const names = {
+                'kentron': 'Կենտրոն',
+                'arabkir': 'Արաբկիր',
+                'avan': 'Ավան',
+                'nor-nork': 'Նոր Նորք',
+                'malatia-sebastia': 'Մալաթիա-Սեբաստիա',
+                'shengavit': 'Շենգավիթ',
+                'erebuni': 'Էրեբունի',
+                'davtashen': 'Դավթաշեն'
+            };
+            return names[loc] || loc;
+        }
+
+        function openPropertyDetail(id) {
+            const prop = properties.find(p => p.id === id);
+            if (!prop) return;
+            
+            currentPropertyId = id;
+            
+            document.getElementById('modalImage').style.backgroundImage = `url('${prop.image}')`;
+            document.getElementById('modalPrice').textContent = formatPrice(prop);
+            document.getElementById('modalTitle').textContent = getText(prop, 'title');
+            document.getElementById('modalDescription').textContent = getText(prop, 'description');
+            
+            document.getElementById('modalInfo').innerHTML = `
+                <div class="info-item">
+                    <div class="info-value">${prop.rooms}</div>
+                    <div class="info-label">Սենյակ</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-value">${prop.area} մ²</div>
+                    <div class="info-label">Մակերես</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-value">${prop.floor}/${prop.totalFloors}</div>
+                    <div class="info-label">Հարկ</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-value">${prop.baths}</div>
+                    <div class="info-label">Լոգարան</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-value">${prop.status === 'sale' ? 'Վաճառք' : 'Վարձով'}</div>
+                    <div class="info-label">Կարգավիճակ</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-value">${getLocationName(prop.location)}</div>
+                    <div class="info-label">Տարածաշրջան</div>
+                </div>
+            `;
+            
+            document.getElementById('modalAmenities').innerHTML = prop.amenities.map(a => 
+                `<span class="amenity-tag">${a}</span>`
+            ).join('');
+            
+            document.getElementById('propertyModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('propertyModal').classList.remove('active');
+            document.body.style.overflow = '';
+            currentPropertyId = null;
+        }
+
+        function contactAboutProperty() {
+            showToast('Ձեր հարցումը ուղարկված է: Մենք կապ կհաստատենք շուտով:');
+            setTimeout(closeModal, 1000);
+        }
+
+        function toggleFavorite(id, button) {
+            const icon = button.querySelector('i');
+            if (icon.classList.contains('far')) {
+                icon.classList.remove('far');
+                icon.classList.add('fas');
+                button.classList.add('active');
+                showToast('❤️ Ավելացվեց ընտրյալներում');
+            } else {
+                icon.classList.remove('fas');
+                icon.classList.add('far');
+                button.classList.remove('active');
+                showToast('Հեռացվեց ընտրյալներից');
+            }
+        }
+
+        function filterProperties() {
+            const type = document.getElementById('propertyType').value;
+            const location = document.getElementById('location').value;
+            const rooms = document.getElementById('rooms').value;
+            const minPrice = parseFloat(document.getElementById('minPrice').value) || 0;
+            const maxPriceInput = document.getElementById('maxPrice').value;
+            const maxPrice = maxPriceInput ? (parseFloat(maxPriceInput) || Infinity) : Infinity;
+            const priceKey = 'price' + currentCurrency;
+
+            const filtered = properties.filter(prop => {
+                if (type !== 'all' && prop.type !== type) return false;
+                if (location !== 'all' && prop.location !== location) return false;
+                if (rooms !== 'all') {
+                    if (rooms === '4' && prop.rooms < 4) return false;
+                    if (rooms !== '4' && prop.rooms !== parseInt(rooms)) return false;
+                }
+                if (prop[priceKey] < minPrice || prop[priceKey] > maxPrice) return false;
+                return true;
+            });
+
+            renderProperties(filtered);
+            
+            const resultsDiv = document.getElementById('searchResults');
+            resultsDiv.textContent = filtered.length > 0 ? 
+                `✅ Գտնվել է ${filtered.length} գույք` : 
+                '❌ Գույք չի գտնվել';
+            
+            setTimeout(() => { resultsDiv.textContent = ''; }, 3000);
+        }
+
+        function navigateTo(page) {
+            let filtered = [...properties];
+            switch(page) {
+                case 'apartments':
+                    filtered = properties.filter(p => p.type === 'apartment');
+                    document.getElementById('propertyType').value = 'apartment';
+                    break;
+                case 'houses':
+                    filtered = properties.filter(p => p.type === 'house');
+                    document.getElementById('propertyType').value = 'house';
+                    break;
+                case 'commercial':
+                    filtered = properties.filter(p => p.type === 'commercial');
+                    document.getElementById('propertyType').value = 'commercial';
+                    break;
+                default:
+                    document.getElementById('propertyType').value = 'all';
+            }
+            document.getElementById('location').value = 'all';
+            document.getElementById('rooms').value = 'all';
+            document.getElementById('minPrice').value = '0';
+            document.getElementById('maxPrice').value = '';
+            renderProperties(filtered);
+            showToast(`Ցուցադրվում է ${page === 'home' ? 'բոլոր' : page} գույքը`);
+        }
+
+        function toggleDarkMode() {
+            document.body.style.filter = document.body.style.filter ? '' : 'invert(0.9) hue-rotate(180deg)';
+            document.querySelectorAll('img, .property-image, .modal-image, .hero-bg, .hero-image').forEach(el => {
+                el.style.filter = document.body.style.filter ? 'invert(0.9) hue-rotate(180deg)' : '';
+            });
+        }
+
+        function showToast(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.textContent = message;
+            document.body.appendChild(toast);
+            setTimeout(() => toast.remove(), 2500);
+        }
+
+        // Mobile menu
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            document.getElementById('navMenu').classList.toggle('active');
+        });
+
+        // Close modal on overlay click
+        document.getElementById('propertyModal').addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+
+        // Keyboard shortcut
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeModal();
+        });
+
+        // Close mobile menu on outside click
+        document.addEventListener('click', function(e) {
+            const menu = document.getElementById('navMenu');
+            const btn = document.getElementById('mobileMenuBtn');
+            if (!menu.contains(e.target) && !btn.contains(e.target)) {
+                menu.classList.remove('active');
+            }
+        });
+
+        // Initial render
+        renderProperties(properties);
+    </script>
+</body>
+</html>
